@@ -31,3 +31,9 @@ Accessible components and patterns with how-to instructions.
 - dropdown list
 - datepicker
 - range slider
+- tabs
+- modal window
+- accordion
+- custom tooltip
+- toggle button
+- custom checkbox
