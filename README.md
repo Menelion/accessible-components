@@ -37,3 +37,14 @@ Accessible components and patterns with how-to instructions.
 - custom tooltip
 - toggle button
 - custom checkbox
+
+## todo
+- gulp
+  - server
+  - build
+  - deploy
+- styles
+  - how-to list
+  - code snippets (prism?)
+  - block
+  - inline
