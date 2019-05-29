@@ -1,49 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
-    <title>Modal</title>
+    <title>Модальное окно</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/global.css">
+    <link href="../css/prism.css" rel="stylesheet" />
   </head>
   <body>
     <div class="content">
-      <h1>Modal</h1>
-
-      <nav>
-        <ol>
-          <li><a href="#create-markup">Create markup</a></li>
-          <li><a href="#add-styles">Add styles</a></li>
-          <li><a href="#add-basic-js">Add basic JavaScript</a></li>
-          <li>Add ARIA</li>
-          <li>Add keyboard support</li>
-          <li>Add <code>focus-trap</code></li>
-          <li>Add <code>inert</code></li>
-        </ol>
-      </nav>
-
+      <h1>Модальное окно</h1>
+      
       <section>
-        <h2 id="create-markup">Step 1: Create markup</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, quam.</p>
+        <p>Функция модального окна, отвлекать внимание пользователей на краткое, важное сообщение. Модальное окно обычно перекрывает основное содержимое страницы, затеняя его и оставляя доступным только содержимое самого модального окна. Остальное содержимое страницы должно оставаться инертным и пользователи не должны взаимодействовать с ним, пока модальное окно открыто.</p>
       </section>
 
       <section>
-        <h2 id="add-styles">Step 2: Add styles</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, quam.</p>
+        <h2>Пример</h2>
+        <a href="demo/">Пример модального окна</a>
       </section>
 
       <section>
-        <h2 id="add-basic-js">Step 3: Add basic JavaScript</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, quam.</p>
+        <h2>Техника создания модального окна</h2>
+        
+        <h3>Шаг 1: Задать разметку</h3>
+        <p>Одним из популярных способов создания модального окна является центрирование элемента внутри другого элемента растянутого на всю ширину экрана.</p>
+        <!-- Code snippet -->
+        <script type="text/plain" class="language-markup"><div class="modal">
+  <div class="modal__content">...</div>
+</div></script>
+        <!-- / Code snippet -->
+      
+        <h3 >Шаг 2: Добавить стили</h3>
+        <!-- Code snippet -->
+        <pre class="language-css"><code>.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+
+.modal--open {
+  display: block;
+}
+
+.modal__content {
+  position: absolute;
+  background: white;
+  padding: 1em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}</code></pre>
+        <!-- / Code snippet -->
+
+        <h3>Шаг 3: Открытие модального окна</h3>
+        <p>Модальное окно открывается при добавлении класса <code class="language-xxxx">modal--open</code> к основному элементу.</p>
+        <!-- Code snippet -->
+        <script type="text/plain" class="language-markup"><div class="modal modal--open"></div></script>
+        <!-- / Code snippet -->
+
+        <h3>Шаг 4: Добавить focus-trap</h3>
+        <p>Чтобы закольцевать фокус внутри модального окна, используется техника <code class="language-xxxx">focus-trap</code>, которая также включает в себя добавление общепринятых комбинаций клавиш и паттернов удобных для управления модальным окном.</p>
+        <p>Например для закрытия модального окна можно нажать клавишу <code class="language-xxxx">ESC</code> или кликнуть вне содержимого модального окна.</p>
+        <!-- Code snippet -->
+        <pre class="language-markup"><code><!--<script src="focus-trap.js"></script>--></code></pre>
+        <pre class="language-js"><code>const button = document.getElementById('button');
+const modal = document.getElementById('modal');
+const content = document.getElementById('modal-content');
+
+let modalFocusTrap;
+
+button.addEventListener('click', () => {
+  modal.classList.toggle('modal--open');
+
+  modalFocusTrap = focusTrap(content, {
+    clickOutsideDeactivates: true,
+    onDeactivate: () => {
+      modal.classList.toggle('modal--open');
+    }
+  });
+
+  modalFocusTrap.activate();
+});</code></pre>
+        <!-- / Code snippet -->
+
+        <h3>Шаг 5: Добавить ARIA аттрибуты</h3>
+        <!-- Code snippet -->
+        <pre class="language-markup"><code><!--<div class="modal">
+  <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+    <h2 id="modal-headline">Заголовок</h2>
+    ...
+  </div>
+</div>--></code></pre>
+        <!-- / Code snippet -->
       </section>
 
       <section>
-        <h2>Demo</h2>
-        <a target="_blank" href="demo/">Modal demo</a>
-      </section>
-
-      <section>
-        <h2>Sources</h2>
+        <h2>Ссылки</h2>
         <ul>
           <li><a href="https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal">https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal</a></li>
           <li><a href="https://github.com/davidtheclark/focus-trap">https://github.com/davidtheclark/focus-trap</a></li>
@@ -51,9 +108,24 @@
       </section>
 
       <section>
-        <h2>Comments</h2>
-        <p>Comments here.</p>
+        <h2>Комментарии</h2>
+        <div id="disqus_thread"></div>
       </section>
     </div>
+
+    <script src="../js/prism.js"></script>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'https://krigersergei.github.io/accessible-components/';
+        this.page.identifier = 'https://krigersergei.github.io/accessible-components/';
+      };
+
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://accessible-components.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
   </body>
 </html>

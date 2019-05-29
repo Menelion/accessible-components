@@ -1,14 +1,14 @@
-const btn = document.querySelector('.js-button');
-const modal = document.querySelector('.js-modal');
-const content = document.querySelector('.js-modal-content');
+const openModalButton = document.getElementById('open-modal-button');
+const modal = document.getElementById('modal');
+const content = document.getElementById('modal-content');
+const closeButton = document.getElementById('modal-close-button');
 
 let modalFocusTrap;
 
-btn.addEventListener('click', () => {
+openModalButton.addEventListener('click', () => {
   modal.classList.toggle('modal--open');
 
   modalFocusTrap = focusTrap(content, {
-    initialFocus: content,
     clickOutsideDeactivates: true,
     onDeactivate: () => {
       modal.classList.toggle('modal--open');
@@ -16,4 +16,8 @@ btn.addEventListener('click', () => {
   });
 
   modalFocusTrap.activate();
+});
+
+closeButton.addEventListener('click', () => {
+  modalFocusTrap.deactivate();
 });
