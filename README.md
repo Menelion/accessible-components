@@ -56,7 +56,7 @@ Accessible components and patterns with how-to instructions.
 
 ## todo
 - [ ] gulp
-  - [ ] server
+  - [x] server
   - [ ] build
   - [ ] deploy
 - [ ] styles
