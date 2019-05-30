@@ -1,0 +1,21 @@
+body {
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: sans-serif;
+  color: black;
+  margin: 0;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+h1, h2, h3 {
+  font-family: 'Arial Black', 'Arial', sans-serif;
+}
+
+section {
+  margin-bottom: 2em;
+}
