@@ -61,6 +61,6 @@ Accessible components and patterns with how-to instructions.
   - [ ] deploy
 - [ ] styles
   - [ ] how-to list
-  - [ ] code snippets (prism?)
-    - [ ] block
-    - [ ] inline
+  - [x] code snippets (prism?)
+    - [x] block
+    - [x] inline
