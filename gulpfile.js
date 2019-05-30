@@ -1,7 +1,9 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
+const ghPages = require('gulp-gh-pages');
 
 const paths = {
+  src: 'src/**/*',
   html: {
     src: 'src/**/*.html'
   },
