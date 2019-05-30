@@ -1,6 +1,11 @@
 {
   "name": "accessible-components",
   "version": "0.0.0",
+  "author": {
+    "name": "Sergei Kriger",
+    "email" : "info@sergeikriger.com",
+    "url": "https://sergeikriger.com"
+  },
   "description": "Accessible components and patterns with how-to instructions.",
   "scripts": {
     "start": "gulp"
@@ -9,8 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/krigersergei/accessible-components.git"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/krigersergei/accessible-components/issues"
   },
