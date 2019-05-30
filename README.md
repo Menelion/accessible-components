@@ -41,15 +41,19 @@ Accessible components and patterns with how-to instructions.
 - uploading files
 - checkout funnel
 - basket
-- hamburger menu
+- hamburger/menu
+  - https://www.a11ymatters.com/pattern/mobile-nav/
+  - https://inclusive-components.design/menus-menu-buttons/
 - chat
 - input with tags and clear button
 - dropdown list
+  - https://www.w3.org/TR/wai-aria-practices-1.1/#Listbox
 - datepicker
 - range slider
 - tabs
 - modal window
 - accordion
+  - https://www.w3.org/TR/wai-aria-practices-1.1/#accordion
 - custom tooltip
 - toggle button
 - custom checkbox
